@@ -1,0 +1,19 @@
+{
+  "manifest_version":2,
+  "name": "TwitterT Social Toolkit ",
+  "description": "Allow you to share text, images, links, pages etc to twitter",
+  "background":{
+    "scripts":["background.js"]
+  },
+  "version": "1.0",
+  "icons":{
+    "64": "icon.png",
+    "32": "icon.png",
+    "16": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "contextMenus"
+  ]
+
+}

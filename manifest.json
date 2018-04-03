@@ -14,14 +14,6 @@
   },
   "permissions": [
     "contextMenus","tabs","browsingData"
-  ],
-
-  "content_scripts": [
-    {
-      "matches": ["https://www.facebook.com/dialog/*"],
-      "js": ["fbscript.js"]
-    }
-
   ]
 
 }

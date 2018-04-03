@@ -2,7 +2,7 @@ var contextListTwitter = ["selection","link","image","page"];
 
 for(i=0;i<contextListTwitter.length;i++) {
     var context = contextListTwitter[i];
-    var titleX = "Share On Twitter";
+    var titleX = "Share "+jsUcfirst(context)+" On Twitter";
 
     chrome.contextMenus.create({
         title: titleX,
@@ -13,7 +13,7 @@ for(i=0;i<contextListTwitter.length;i++) {
 
 
 
-    var titleX = "Share On Facebook";
+    var titleX = "Share "+jsUcfirst(context)+" On Facebook";
     chrome.contextMenus.create({
         title: titleX,
         contexts: [context],
@@ -63,8 +63,16 @@ function clickHandler(data,tab) {
 
 }
 
-chrome.runtime.onMessage.addListener(function (response,sender,sendResponse) {
-    if(response=="Facebook") {
-        window.location.assign("quora.com");
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    if(changeInfo.status == "loading") {
+        if(tab.url == "https://www.facebook.com/dialog/return/close#_=_") {
+            chrome.tabs.remove(tabId);
+        }
+
     }
-})
+});
+
+function jsUcfirst(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

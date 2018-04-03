@@ -1,6 +1,6 @@
 {
   "manifest_version":2,
-  "name": "TwitterT Social Toolkit ",
+  "name": "Social Media ToolKit ",
   "description": "Allow you to share text, images, links, pages etc to twitter",
   "background":{
     "scripts":["background.js"]
@@ -13,7 +13,15 @@
     "128": "icon.png"
   },
   "permissions": [
-    "contextMenus"
+    "contextMenus","tabs","browsingData"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/dialog/*"],
+      "js": ["fbscript.js"]
+    }
+
   ]
 
 }
